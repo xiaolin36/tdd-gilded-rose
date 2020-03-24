@@ -80,4 +80,19 @@ class GildedRoseTest {
     assertEquals(-9, app.items[0].sellIn);
     assertEquals(50, app.items[0].quality);
   }
+
+  @Test
+  void sulfuresQualityTenDaysLater(){
+    Item[] items = new Item[] { new Item("Sulfures", 2, 40) };
+    GildedRose app = new GildedRose(items);
+
+    int days = 10;
+    for (int i = 0; i < days; i++) {
+      app.updateQuality();
+    }
+
+    assertEquals("Sulfures", app.items[0].name);
+    assertEquals(2, app.items[0].sellIn);
+    assertEquals(40, app.items[0].quality);
+  }
 }
